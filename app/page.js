@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Home() {
   return (
     <main>
@@ -5,5 +7,5 @@ export default function Home() {
         Time to get started!
       </h1>
     </main>
-  );
+  )
 }
