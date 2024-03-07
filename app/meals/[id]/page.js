@@ -2,10 +2,16 @@ import React from 'react'
 import classes from './page.module.css'
 import Image from 'next/image'
 import { getMeal } from '@/lib/meals'
+import { notFound } from 'next/navigation'
 
 function Meal({ params: { id: slug } }) {
   const meal = getMeal(slug)
   console.log(meal)
+
+  if (!meal) {
+    notFound() // show the next notFound or error page
+  }
+
   meal.instructions = meal.instructions.replace(/\n/g, '<br />')
   return (
     <>
