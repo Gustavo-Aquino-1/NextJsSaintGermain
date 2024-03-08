@@ -4,6 +4,14 @@ import Image from 'next/image'
 import { getMeal } from '@/lib/meals'
 import { notFound } from 'next/navigation'
 
+export async function generateMetadata({ params }) {
+  const meal = getMeal(params.id)
+  return {
+    title: `Saint Germain | ${params.id}`,
+    description: `More details about ${params.id}: ${meal?.summary}`,
+  }
+}
+
 function Meal({ params: { id: slug } }) {
   const meal = getMeal(slug)
   console.log(meal)
